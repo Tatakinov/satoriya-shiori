@@ -2,7 +2,9 @@
 #include	"../_/Utilities.h"
 #include "posix_utils.h"
 #include	<time.h>
+#ifndef POSIX
 #include	<tlhelp32.h>
+#endif
 #include	<sstream>
 
 #include "random.h"

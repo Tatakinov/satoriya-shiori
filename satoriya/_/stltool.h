@@ -25,9 +25,12 @@
 #define stricmp _stricmp
 #define strnicmp _strnicmp
 #define strcasecmp _stricmp
+#elif defined(POSIX)
+#define stricmp strcasecmp
+#define strnicmp strncasecmp
 #endif
 
-#if _MSC_VER <= 1200
+#if defined(_MSC_VER) && _MSC_VER <= 1200
 namespace std {
 	#ifdef _WIN64
 	typedef __int64             ptrdiff_t;
@@ -357,7 +360,7 @@ inline int	splitToSet(const string& iString, std::set<string>& oSet, int iDelimi
 template<typename C, typename K, typename V>
 int	keys(const std::map<K,V>& iMap, C& oContainer) {
 	oContainer.clear();
-	for ( typename map<K,V>::const_iterator i=iMap.begin() ; i!=iMap.end() ; ++i)
+	for ( typename std::map<K,V>::const_iterator i=iMap.begin() ; i!=iMap.end() ; ++i)
 		oContainer.push_back(i->first);
 	return	oContainer.size();
 }
@@ -373,7 +376,7 @@ C	keys(const std::map<K,V>& iMap) {
 template<typename C, typename K, typename V>
 int	values(const std::map<K,V>& iMap, C& oContainer) {
 	oContainer.clear();
-	for ( typename map<K,V>::const_iterator i=iMap.begin() ; i!=iMap.end() ; ++i)
+	for ( typename std::map<K,V>::const_iterator i=iMap.begin() ; i!=iMap.end() ; ++i)
 		oContainer.push_back(i->second);
 	return	oContainer.size();
 }

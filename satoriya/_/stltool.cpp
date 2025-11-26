@@ -514,7 +514,7 @@ const char*	strstri_hz(const char* target, const char* find) {
 	int	len=strlen(find);
 	const char* p=target;
 	while ( *p!='\0' ) {
-		if ( _strnicmp(p, find, len)==0 )
+		if ( strnicmp(p, find, len)==0 )
 			return	p;
 		if ( _ismbblead(*p) )
 			p+=2; 
