@@ -20,7 +20,7 @@ LDFLAGS = -shared
 
 
 ################## これより下は弄らなくてもコンパイル出来ます ##################
-CXXFLAGS_ADD = -DPOSIX -DSATORI_DLL -I. -I../_
+CXXFLAGS_ADD = -DPOSIX -DSATORI_DLL -I. -I../_ -fPIC
 LIBSATORI_OBJ = \
 	../_/Sender.o \
 	../_/Utilities.o \
