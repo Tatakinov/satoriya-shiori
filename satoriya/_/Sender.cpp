@@ -391,6 +391,7 @@ void Sender::flush_latest_event()
 
 void Sender::flush()
 {
+#ifndef POSIX
 	if (auto_init())
 	{
 		for (std::list< std::list<std::string> >::iterator it = delay_send_list.begin(); it != delay_send_list.end(); it++)
@@ -401,6 +402,7 @@ void Sender::flush()
 			}
 		}
 	}
+#endif // not(POSIX)
 
 	//1つだけ残してパージ
 	if ( ! delay_send_list.empty() ) {
