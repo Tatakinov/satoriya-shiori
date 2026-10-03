@@ -2,7 +2,7 @@
 
 #ifdef POSIX
 /* POSIXではstricmpは定義されていない。代わりにstrcasecmpが使える。 */
-#  define _wcsicmp _wcsicmp
+#  define _wcsicmp wcscasecmp
 #  include <string.h>
 #endif
 
